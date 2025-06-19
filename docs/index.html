@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+Copyright 2024-2025 Yu Hongbo <yuhongbo@member.fsf.org>, 
+  CNOCTAVE <cnoctave@qq.com>
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.  This file is offered as-is,
+without any warranty.
+-->
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width">
+    <meta name="theme-color" content="#00B4FF">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="msapplication-TileImage" content="favicon.ico">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="apple-mobile-web-app-title" content="rolling-subtitle文档">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet" type="text/css">
+    <link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet" type="text/css">
+    <link href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@^4.0.0/animate.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/quasar@2.17.0/dist/quasar.prod.css" rel="stylesheet" type="text/css">
+    <link href="main.css" rel="stylesheet" type="text/css">
+    <title>rolling-subtitle文档</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta name="title" content="rolling-subtitle文档" data-qmeta="title">
+    <meta property="og:title" content="rolling-subtitle文档" data-qmeta="ogTitle">
+    <meta name="twitter:title" content="rolling-subtitle文档" data-qmeta="twitterTitle">
+    <meta name="description" content="Octave中文网是一个面向中文Octave开发者的交流平台，拥有中文Octave文档、中文Octave论坛和中文Octave新闻等特色。"
+        data-qmeta="description">
+    <meta property="og:description" content="Octave中文网是一个面向中文Octave开发者的交流平台，拥有中文Octave文档、中文Octave论坛和中文Octave新闻等特色。"
+        data-qmeta="ogDesc">
+    <meta name="twitter:description" content="Octave中文网是一个面向中文Octave开发者的交流平台，拥有中文Octave文档、中文Octave论坛和中文Octave新闻等特色。"
+        data-qmeta="twitterDesc">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+</head>
+
+<body>
+    <div id="q-app">
+        <q-layout view="hHh LpR fFf">
+            <q-header elevated class="bg-primary text-white">
+                <q-toolbar class="bg-primary text-white q-ny-md shadow-2">
+                    <q-btn stretch flat label="Octave中文网" @click="goTo('http://cnoctave.cn')"></q-btn>
+                    <q-separator dark vertical></q-separator>
+                    <q-btn stretch flat label="rolling-subtitle文档" @click="scrollToTop()"></q-btn>
+                    <q-separator dark vertical></q-separator>
+                    <q-space></q-space>
+                    <q-separator dark vertical></q-separator>
+                    <q-btn-dropdown stretch flat icon="translate" label="切换文档语言">
+                      <q-list>
+                        <q-item clickable v-close-popup @click="goTo('index.html')">
+                          <q-item-section>
+                            <q-item-label>zh-CN 简体中文</q-item-label>
+                          </q-item-section>
+                        </q-item>
+                      </q-list>
+                    </q-btn-dropdown>
+                    <q-separator dark vertical></q-separator>
+                    <q-btn stretch flat label="中文版Octave文档" @click="goTo('http://docs.cnoctave.cn')"></q-btn>
+                    <q-separator dark vertical></q-separator>
+                    <q-btn stretch flat label="学术交流论坛" @click="goTo('http://forum.cnoctave.cn')"></q-btn>
+                    <q-separator dark vertical></q-separator>
+                    <q-btn stretch flat label="新闻" @click="goTo('https://octave.org/news.html')"></q-btn>
+                    <q-separator dark vertical></q-separator>
+                    <q-btn stretch flat label="使用方法" @click="goTo('https://wiki.octave.org/Using_Octave')"></q-btn>
+                    <q-separator dark vertical></q-separator>
+                    <q-btn stretch flat label="免费下载" @click="goTo('https://octave.org/download')"></q-btn>
+                </q-toolbar>
+            </q-header>
+            <q-drawer class="bg-primary" show-if-above v-model="leftDrawerOpen" side="left" bordered elevated>
+                <q-list class="title1 text-white bg-primary">
+                    <q-item clickable v-ripple @click="goToID('#homepage')">
+                        <q-item-section avatar>
+                            <q-icon name="help"></q-icon>
+                        </q-item-section>
+                        <q-item-section>
+                            项目首页
+                        </q-item-section>
+                    </q-item>
+                    <q-item clickable v-ripple @click="goToID('#cdn')">
+                        <q-item-section avatar>
+                            <q-icon name="help"></q-icon>
+                        </q-item-section>
+                        <q-item-section>
+                            CDN引入方式
+                        </q-item-section>
+                    </q-item>
+                    <q-item clickable v-ripple @click="goToID('#npm')">
+                        <q-item-section avatar>
+                            <q-icon name="help"></q-icon>
+                        </q-item-section>
+                        <q-item-section>
+                            NPM安装
+                        </q-item-section>
+                    </q-item>
+                    <q-item clickable v-ripple @click="goToID('#how_to_use')">
+                        <q-item-section avatar>
+                            <q-icon name="help"></q-icon>
+                        </q-item-section>
+                        <q-item-section>
+                            如何使用
+                        </q-item-section>
+                    </q-item>
+                    <q-item clickable v-ripple @click="goToID('#subtitle_config')">
+                        <q-item-section avatar>
+                            <q-icon name="help"></q-icon>
+                        </q-item-section>
+                        <q-item-section>
+                            字幕配置
+                        </q-item-section>
+                    </q-item>
+                    <q-item clickable v-ripple @click="goToID('#live_demo')">
+                        <q-item-section avatar>
+                            <q-icon name="help"></q-icon>
+                        </q-item-section>
+                        <q-item-section>
+                            在线演示
+                        </q-item-section>
+                    </q-item>
+                    <q-item clickable v-ripple @click="goToID('#common_examples')">
+                        <q-item-section avatar>
+                            <q-icon name="help"></q-icon>
+                        </q-item-section>
+                        <q-item-section>
+                            常见用例
+                        </q-item-section>
+                    </q-item>
+                    <q-item clickable v-ripple @click="goToID('#references')">
+                        <q-item-section avatar>
+                            <q-icon name="help"></q-icon>
+                        </q-item-section>
+                        <q-item-section>
+                            引用rolling-subtitle
+                        </q-item-section>
+                    </q-item>
+                </q-list>
+            </q-drawer>
+
+            <q-page-container>
+                <div style="position: relative;">
+                    <q-img src="banner0.png" spinner-color="white" style="width: 100%; height: 300px;"></q-img>
+                    <div class="q-mx-md rainbow-text"
+                        style="line-height: 300px; font-size: 100px; position: absolute; left: 0%; top: 0%;">rolling-subtitle文档
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="main">
+                        <div class="text-h5 q-ma-md text-red-10">欢迎广大开发者将此文档翻译为其他语言。</div>
+                        <q-btn id="homepage" class="title1 text-white bg-primary" stretch flat
+                            label="项目首页：https://github.com/CNOCTAVE/rolling-subtitle" @click="goTo('https://github.com/CNOCTAVE/rolling-subtitle')"></q-btn>
+                        <q-separator></q-separator>
+                        <div id="cdn" class="title1 q-ma-md text-primary">CDN引入方式</div>
+                        <div class="text-h5 q-ma-md text-red-10">必须引入rolling-subtitle.js</div>
+                        <p class="q-ma-md">&lt;script src="https://unpkg.com/rolling-subtitle@1.0.0/rolling-subtitle.js">&lt;/script></p>
+                        <div class="text-h5 q-ma-md text-red-10">可选引入rolling-subtitle.css。在引入rolling-subtitle.css之后才支持顶部字幕或底部字幕</div>
+                        <p class="q-ma-md">&lt;link rel="stylesheet" href="https://unpkg.com/rolling-subtitle@1.0.0/rolling-subtitle.css"></p>
+                        <q-separator></q-separator>
+                        <div id="npm" class="title1 q-ma-md text-primary">NPM安装</div>
+                        <p class="q-ma-md">$ npm install rolling-subtitle</p>
+                        <q-separator></q-separator>
+                        <div id="how_to_use" class="title1 q-ma-md text-primary">如何使用</div>
+                        <div class="text-h5 q-ma-md text-red-10">初始化字幕，生成与字幕相关的所有div</div>
+                        <p class="q-ma-md">var subtitle = RollingSubtitle.init(text, options = {}, parent);</p>
+                        <p class="q-ma-md">text：字幕文本（必要参数）</p>
+                        <p class="q-ma-md">options：字幕配置（可选参数）</p>
+                        <p class="q-ma-md">parent：字幕容器ID或DOM元素（可选参数）</p>
+                        <div class="text-h5 q-ma-md text-red-10">播放字幕</div>
+                        <p class="q-ma-md">subtitle.play(speed = 1);</p>
+                        <p class="q-ma-md">speed：字幕滚动播放的速度（像素/帧）</p>
+                        <div class="text-h5 q-ma-md text-red-10">停止播放字幕</div>
+                        <p class="q-ma-md">subtitle.stop();</p>
+                        <div class="text-h5 q-ma-md text-red-10">获取字幕容器元素</div>
+                        <p class="q-ma-md">subtitle.getElement();</p>
+                        <q-separator></q-separator>
+                        <div id="subtitle_config" class="title1 q-ma-md text-primary">字幕配置</div>
+                        <div class="text-h5 q-ma-md text-red-10">width</div>
+                        <p class="q-ma-md">字幕宽度</p>
+                        <div class="text-h5 q-ma-md text-red-10">height</div>
+                        <p class="q-ma-md">字幕高度</p>
+                        <div class="text-h5 q-ma-md text-red-10">bgColor</div>
+                        <p class="q-ma-md">字幕背景色</p>
+                        <div class="text-h5 q-ma-md text-red-10">color</div>
+                        <p class="q-ma-md">字幕文本颜色</p>
+                        <div class="text-h5 q-ma-md text-red-10">fontSize</div>
+                        <p class="q-ma-md">字幕字号</p>
+                        <div class="text-h5 q-ma-md text-red-10">top</div>
+                        <p class="q-ma-md">top = true 顶部字幕模式</p>
+                        <div class="text-h5 q-ma-md text-red-10">bottom</div>
+                        <p class="q-ma-md">bottom = true 底部字幕模式</p>
+                        <div class="text-h5 q-ma-md text-red-10">示例配置</div>
+                        <p class="q-ma-md">{ 
+                            width: '600px', 
+                            height: '60px', 
+                            bgColor: '#f0f0f0', 
+                            color: '#d40000',
+                            fontSize: '20px',
+                            bottom: true
+                        }</p>
+                        <q-separator></q-separator>
+                        <div id="live_demo" class="title1 q-ma-md text-primary">在线演示</div>
+                        <div class="text-h5 q-ma-md text-red-10">仅使用rolling-subtitle.js，而不使用rolling-subtitle.css</div>
+                        <iframe src="example-no-css.html" width="100%" height="350px"></iframe>
+                        <div class="text-h5 q-ma-md text-red-10">同时使用rolling-subtitle.js和rolling-subtitle.css</div>
+                        <iframe src="example-with-css.html" width="100%" height="500px"></iframe>
+                        <q-separator></q-separator>
+                        <div id="common_examples" class="title1 q-ma-md text-primary">常见用例</div>
+                        <div class="text-h5 q-ma-md text-red-10">电视直播、网络直播</div>
+                        <p class="q-ma-md">可以将本项目用于直播场景，用顶部字幕模式或底部字幕模式滚动显示字幕。</p>
+                        <div class="text-h5 q-ma-md text-red-10">横向滚动显示字幕</div>
+                        <p class="q-ma-md">本项目可以将字幕横向滚动显示。所有的字幕文本均不会换行。</p>
+                        <div class="text-h5 q-ma-md text-red-10">滚动显示文本</div>
+                        <p class="q-ma-md">如果文本过长而显示页面的空间有限，那么滚动显示文本是一个不错的选择。</p>
+                        <q-separator></q-separator>
+                        <div id="references" class="title1 q-ma-md text-primary">引用rolling-subtitle</div>
+                        <div class="text-h5 q-ma-md text-red-10">如果你在学术研究中涉及rolling-subtitle，那么可以按需引用以下内容。</div>
+                        <div class="text-h5 q-ma-md text-red-10">rolling-subtitle源码(BibTeX)</div>
+                        <p class="q-ma-md">@misc{CNOCTAVE2025,
+                            author = {Yu Hongbo, },
+                            title = {rolling-subtitle},
+                            year = {2025},
+                            howpublished = {\url{https://github.com/CNOCTAVE/rolling-subtitle}},
+                          }</p>
+                        <div class="text-h5 q-ma-md text-red-10">rolling-subtitle文档(BibTeX)</div>
+                        <p class="q-ma-md">@techreport{CNOCTAVE2025,
+                            author = {Yu Hongbo, },
+                            title = {rolling-subtitle Document},
+                            institution = {BA DU XIN SHANG},
+                            year = {2025},
+                            number = {16},
+                            month = {6},
+                            url = {https://cnoctave.github.io/rolling-subtitle/index.html},
+                            urldate = {2025-06-16},
+                          }</p>
+                    </div>
+                </div>
+                <q-toolbar class="bg-grey-8 text-white q-my-md shadow-2">
+                    <q-btn-dropdown stretch flat label="版权所有 ©">
+                      <q-list>
+                        <q-item clickable v-close-popup @click="goTo('http://cnoctave.cn')">
+                          <q-item-section>
+                            <q-item-label>© 2024-2025 CNOCTAVE</q-item-label>
+                          </q-item-section>
+                        </q-item>
+                        <q-item clickable v-close-popup @click="goTo('https://orcid.org/0009-0007-9436-4161')">
+                          <q-item-section>
+                            <q-item-label>© 2024-2025 Yu Hongbo</q-item-label>
+                          </q-item-section>
+                        </q-item>
+                      </q-list>
+                    </q-btn-dropdown>
+                    <q-separator dark vertical></q-separator>
+                    <q-btn stretch flat label="此文档受Creative Commons Attribution-NoDerivatives 4.0 International License协议保护。" 
+                    @click="goTo('https://creativecommons.org/licenses/by-nd/4.0/')"></q-btn>
+                    <q-separator dark vertical></q-separator>
+                    <q-btn stretch flat label="下载此文档的源码" 
+                    @click="goTo('https://github.com/CNOCTAVE/rolling-subtitle')"></q-btn>
+                </q-toolbar>
+            </q-page-container>
+
+        </q-layout>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quasar@2.17.0/dist/quasar.umd.prod.js"></script>
+    <script>
+
+        const App = {
+            data() {
+                return {
+                    scrollToTop() {
+                        window.scrollTo(0, 0);
+                    },
+                    goTo(target) {
+                        window.open(target, '_blank');
+                    },
+                    goToID(target) {
+                        window.open(target, '_self');
+                    },
+                    leftDrawerOpen: true,
+                };
+            },
+        };
+        const app = Vue.createApp(App);
+
+        app.use(Quasar)
+        app.mount('#q-app')
+    </script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

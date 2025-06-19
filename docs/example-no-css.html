@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!-- rolling-subtitle - play rolling subtitle in browser.
+Copyright (C) 2024-2025  Yu Hongbo, CNOCTAVE
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rolling Subtitle Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .demo-container {
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+        button {
+            padding: 8px 16px;
+            margin-right: 10px;
+            background: #0078d4;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #106ebe;
+        }
+    </style>
+</head>
+<body>
+    <h1>Rolling Subtitle Demo</h1>
+    
+    <div class="demo-container">
+        <h3>嵌入字幕</h3>
+        <div id="subtitle3"></div>
+        <button onclick="startSubtitle3()">播放</button>
+        <button onclick="stopSubtitle3()">停止</button>
+    </div>
+
+    <script src="rolling-subtitle.js"></script>
+    <script>
+        
+        // 示例3
+        var subtitle3 = RollingSubtitle.init(
+            "微积分.线性代数.概率论与数理统计.常微分方程.偏微分方程.复变函数.实变函数.泛函分析.抽象代数.点集拓扑学.数学物理方法.数值分析.运筹学.组合数学.图论.数理逻辑.矩阵论.偏微分方程.泛函分析.数理逻辑.数学物理方法.数值分析.运筹学.组合数学.图论.数理逻辑.矩阵论.偏微分方程.泛函分析.数理逻辑.数学物理方法.数值分析.运筹",
+            { 
+                bgColor: '#22ee88', 
+                color: '#2222ee',
+                fontSize: '20px'
+            },
+            'subtitle3'
+        );
+        
+        function startSubtitle3() {
+            subtitle3.play(3);
+        }
+        
+        function stopSubtitle3() {
+            subtitle3.stop();
+        }
+    </script>
+</body>
+</html>

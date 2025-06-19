@@ -1,0 +1,159 @@
+body {
+    border-top: 0px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.main {
+    flex: 10;
+    margin: 0 20px;
+}
+
+.title1 {
+    font-size: 30px;
+}
+
+.bookpic {
+    height: 300px;
+}
+
+.card:hover {
+    color: rgb(0, 132, 255);
+    cursor: pointer;
+}
+
+.rainbow-text {
+    display: inline-block;
+    background-image: -webkit-linear-gradient(90deg, red, orange, yellow, red, orange);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.ad-banner {
+    width: 100%;
+    height: 200px;
+    background-color: gray;
+    color: white;
+    text-align: center;
+}
+
+.ad-side {
+    /* width: 10%; */
+    height: 600px;
+    background-color: gray;
+    color: white;
+    text-align: center;
+    flex: 1;
+}
+
+.custom-caption {
+    text-align: center;
+    padding: 50px;
+    color: white;
+    background-color: rgba(0, 0, 0, .3);
+}
+
+.combined-color-1 {
+    background: radial-gradient(ellipse at top, #e66465, transparent),
+        radial-gradient(ellipse at bottom, #4d9f0c, transparent),
+        radial-gradient(ellipse at left, #0fce65, transparent),
+        radial-gradient(ellipse at right, #f3c809, transparent);
+}
+
+.combined-color-2 {
+    background: radial-gradient(ellipse at top, #a3e664, transparent),
+        radial-gradient(ellipse at bottom, #0c9f6e, transparent),
+        radial-gradient(ellipse at left, #0f92ce, transparent),
+        radial-gradient(ellipse at right, #f309c0, transparent);
+}
+
+.combined-color-3 {
+    background: radial-gradient(ellipse at top, #64d7e6, transparent),
+        radial-gradient(ellipse at bottom, #9f780c, transparent),
+        radial-gradient(ellipse at left, #b80fce, transparent),
+        radial-gradient(ellipse at right, #09f328, transparent);
+}
+
+.combined-color-4 {
+    background: radial-gradient(ellipse at top, #64e6db, transparent),
+        radial-gradient(ellipse at bottom, #ecdd07, transparent),
+        radial-gradient(ellipse at left, #ce2c0f, transparent),
+        radial-gradient(ellipse at right, #9509f3, transparent);
+}
+
+.combined-color-5 {
+    background: radial-gradient(ellipse at top, #e67864, transparent),
+        radial-gradient(ellipse at bottom, #3cec07, transparent),
+        radial-gradient(ellipse at left, #0f32ce, transparent),
+        radial-gradient(ellipse at right, #f30957, transparent);
+}
+
+.combined-color-6 {
+    background: radial-gradient(ellipse at top, #c42bd8, transparent),
+        radial-gradient(ellipse at bottom, #ec6e07, transparent),
+        radial-gradient(ellipse at left, #4cce0f, transparent),
+        radial-gradient(ellipse at right, #0995f3, transparent);
+}
+
+.combined-color-7 {
+    background: radial-gradient(ellipse at top, #d82b2b, transparent),
+        radial-gradient(ellipse at bottom, #ddec07, transparent),
+        radial-gradient(ellipse at left, #0fcece, transparent),
+        radial-gradient(ellipse at right, #2009f3, transparent);
+}
+
+.combined-color-8 {
+    background: radial-gradient(ellipse at top, #2bd85f, transparent),
+        radial-gradient(ellipse at bottom, #4c07ec, transparent),
+        radial-gradient(ellipse at left, #1fce0f, transparent),
+        radial-gradient(ellipse at right, #f30999, transparent);
+}
+
+.combined-color-9 {
+    background: radial-gradient(ellipse at top, #2bbed8, transparent),
+        radial-gradient(ellipse at bottom, #ec4807, transparent),
+        radial-gradient(ellipse at left, #ce0fa5, transparent),
+        radial-gradient(ellipse at right, #86f309, transparent);
+}
+
+.combined-color-10 {
+    background: radial-gradient(ellipse at top, #d82bca, transparent),
+        radial-gradient(ellipse at bottom, #94ec07, transparent),
+        radial-gradient(ellipse at left, #0fb8ce, transparent),
+        radial-gradient(ellipse at right, #dcf309, transparent);
+}
+
+.carousel {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    height: 300px;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.person {
+    max-width: 100%;
+    width: 300px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.person-outline {
+    width: 340px;
+    height: 500px;
+}
+
+/* .person img {
+  max-height: 100%;
+  max-width: 80%;
+} */
