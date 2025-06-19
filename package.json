@@ -1,0 +1,28 @@
+{
+  "name": "rolling-subtitle",
+  "version": "1.0.0",
+  "description": "play rolling subtitle in browser",
+  "main": "rolling-subtitle.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CNOCTAVE/rolling-subtitle.git"
+  },
+  "keywords": [
+    "rolling",
+    "subtitle",
+    "CNOCTAVE",
+    "yuhongbo"
+  ],
+  "author": "CNOCTAVE, Yu Hongbo",
+  "license": "AGPL-3.0-only",
+  "bugs": {
+    "url": "https://github.com/CNOCTAVE/rolling-subtitle/issues"
+  },
+  "homepage": "https://github.com/CNOCTAVE/rolling-subtitle#readme"
+}
