@@ -100,6 +100,22 @@ without any warranty.
                             NPM安装
                         </q-item-section>
                     </q-item>
+                    <q-item clickable v-ripple @click="goToID('#import')">
+                        <q-item-section avatar>
+                            <q-icon name="help" />
+                        </q-item-section>
+                        <q-item-section>
+                            import引入方式
+                        </q-item-section>
+                    </q-item>
+                    <q-item clickable v-ripple @click="goToID('#require')">
+                        <q-item-section avatar>
+                            <q-icon name="help" />
+                        </q-item-section>
+                        <q-item-section>
+                            require引入方式
+                        </q-item-section>
+                    </q-item>
                     <q-item clickable v-ripple @click="goToID('#how_to_use')">
                         <q-item-section avatar>
                             <q-icon name="help"></q-icon>
@@ -165,6 +181,12 @@ without any warranty.
                         <q-separator></q-separator>
                         <div id="npm" class="title1 q-ma-md text-primary">NPM安装</div>
                         <p class="q-ma-md">$ npm install rolling-subtitle</p>
+                        <q-separator></q-separator>
+                        <div id="import" class="title1 q-ma-md text-primary">import引入方式</div>
+                        <p class="q-ma-md">import LrcPlayer from 'path/to/rolling-subtitle';</p>
+                        <q-separator></q-separator>
+                        <div id="require" class="title1 q-ma-md text-primary">require引入方式</div>
+                        <p class="q-ma-md">const LrcPlayerClass = require("path/to/rolling-subtitle");</p>
                         <q-separator></q-separator>
                         <div id="how_to_use" class="title1 q-ma-md text-primary">如何使用</div>
                         <div class="text-h5 q-ma-md text-red-10">初始化字幕，生成与字幕相关的所有div</div>
