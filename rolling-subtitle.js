@@ -50,6 +50,20 @@ class SubtitleInstance {
         
         animate();
     }
+
+    /**
+     * 开始滚动字幕。滚动结束后自动停止
+     * @param {number} speed - 滚动速度(像素/帧)
+     */
+    playOnce(speed = 1) {
+        this.play(speed);
+        const totalWidth = this.element.offsetWidth + this.container.offsetWidth;
+        const duration = totalWidth / speed * 1000 / 60; // 计算总时长（毫秒）
+        setTimeout(() => {
+            this.stop();
+            this.element.style.left = this.container.offsetWidth + 'px'; // 重置位置
+        }, duration);
+    }
     
     /**
      * 停止滚动
@@ -59,6 +73,18 @@ class SubtitleInstance {
             cancelAnimationFrame(this.animationId);
             this.animationId = null;
         }
+    }
+    
+    /**
+     * 销毁字幕实例，停止动画并移除DOM元素
+     */
+    destroy(){
+        this.stop();
+        if (this.container && this.container.parentNode) {
+            this.container.parentNode.removeChild(this.container);
+        }
+        this.element = null;
+        this.container = null;
     }
     
     /**

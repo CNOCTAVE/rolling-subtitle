@@ -1,6 +1,6 @@
 {
   "name": "rolling-subtitle",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "play rolling subtitle in browser",
   "main": "rolling-subtitle.js",
   "directories": {

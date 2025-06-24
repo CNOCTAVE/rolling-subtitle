@@ -50,7 +50,9 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
         <h3>嵌入字幕</h3>
         <div id="subtitle3"></div>
         <button onclick="startSubtitle3()">播放</button>
+        <button onclick="startOnceSubtitle3()">播放一次</button>
         <button onclick="stopSubtitle3()">停止</button>
+        <button onclick="destroySubtitle3()">销毁</button>
     </div>
 
     <script src="rolling-subtitle.js"></script>
@@ -71,8 +73,16 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
             subtitle3.play(3);
         }
         
+        function startOnceSubtitle3() {
+            subtitle3.playOnce(3);
+        }
+        
         function stopSubtitle3() {
             subtitle3.stop();
+        }
+        
+        function destroySubtitle3() {
+            subtitle3.destroy();
         }
     </script>
 </body>
